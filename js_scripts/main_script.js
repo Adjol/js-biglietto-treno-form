@@ -4,43 +4,58 @@ const inputUserAge = document.querySelector(".user_age");
 
 const sendButton = document.querySelector(".send");
 
-// input distanza in km per calcolo biglietto
 
+// variabili utili al calcolo costo biglietto
+// let distanceKm;
+let priceCalc;
+// let ageUser;
 
-// console.log(distanceKm);
+// tariffario
 
-// input età passegero per calcolo biglietto
-
-
-// console.log(ageUser);
-
-// button click event
 
 sendButton.addEventListener("click",
 
     function(){
-        let distanceKm = inputDistance.value;
-        console.log(distanceKm);
-        let ageUser = inputUserAge.value;
-        console.log(ageUser);
+        
+        let distanceKm = parseInt(inputDistance.value);
+
+        let  ageUser = parseInt(inputUserAge.value);
+
+
+        if (ageUser > 18){
+            const price = parseFloat(0.21);
+            priceCalc = price * distanceKm;
+        document.getElementById("final_price").innerHTML=priceCalc;
+
+        } else if (ageUser < 18) {
+            let minorenne = parseFloat( priceCalc);
+
+            minorenne = priceCalc - (priceCalc * .20);
+            document.getElementById("final_price").innerHTML=minorenne;
+
+        } else (ageUser > 65) ;{
+            let over = parseFloat (priceCalc);
+
+            over = priceCalc - (priceCalc * .40);
+            document.getElementById("final_price").innerHTML=over;
+        }
+
     }
 
-)
+
+);
 
 
-// const price = parseFloat(0.21)
+// if (ageUser>18) {
+//     sendButton.addEventListener("click",
 
+//         function(){
+//             priceCalc = price * distanceKm;
+//             console.log(priceCalc);
+//         }
+//     )
+// }
 
-// // chiedi quanti chilometri dovra percorrere
-
-// let distanceKm = inputDistance.Value;
-
-// console.log(distanceKm);
-
-
-// // chiedi l'eta al utente
-
-// let discountAge = inputUserAge.Value;
 
 
 

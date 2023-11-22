@@ -6,9 +6,9 @@ const sendButton = document.querySelector(".send");
 
 
 // variabili utili al calcolo costo biglietto
-// let distanceKm;
+let distanceKm;
 let priceCalc;
-// let ageUser;
+let ageUser;
 
 // tariffario
 
@@ -22,19 +22,21 @@ sendButton.addEventListener("click",
         let  ageUser = parseInt(inputUserAge.value);
 
 
-        if (ageUser > 18){
-            const price = parseFloat(0.21);
+        
+            let price = parseFloat(0.21);
             priceCalc = price * distanceKm;
-        document.getElementById("final_price").innerHTML=priceCalc;
+            document.getElementById("final_price").innerHTML=priceCalc;
 
-        } else if (ageUser < 18) {
+        if (ageUser < 18) {
             let minorenne = parseFloat( priceCalc);
 
             minorenne = priceCalc - (priceCalc * .20);
             document.getElementById("final_price").innerHTML=minorenne;
 
-        } else (ageUser > 65) ;{
-            let over = parseFloat (priceCalc);
+        } 
+        else if (ageUser > 65) {
+
+            let over = parseFloat( priceCalc);
 
             over = priceCalc - (priceCalc * .40);
             document.getElementById("final_price").innerHTML=over;
@@ -44,18 +46,6 @@ sendButton.addEventListener("click",
 
 
 );
-
-
-// if (ageUser>18) {
-//     sendButton.addEventListener("click",
-
-//         function(){
-//             priceCalc = price * distanceKm;
-//             console.log(priceCalc);
-//         }
-//     )
-// }
-
 
 
 
